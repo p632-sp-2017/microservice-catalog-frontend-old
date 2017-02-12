@@ -8,8 +8,9 @@ script:
 
 notifications:
   slack: p632:20oR0X45QVtC9RACNHghchWR
-    on_success: never
-    on_failure: always
+
+#    on_success: never
+#    on_failure: always
 
 # addons:
 #   code_climate:
