@@ -1,8 +1,3 @@
-# @Author: arpitkhandelwal
-# @Date:   11-Feb-2017
-# @Last modified by:   arpitkhandelwal
-# @Last modified time: 11-Feb-2017
-
 language: java
 jdk:
   - oraclejdk8
