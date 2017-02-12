@@ -1,3 +1,17 @@
+# @Author: arpitkhandelwal
+# @Date:   08-Feb-2017
+# @Last modified by:   arpitkhandelwal
+# @Last modified time: 11-Feb-2017
+
+
+
 language: java
 notifications:
   slack: p632:20oR0X45QVtC9RACNHghchWR
+
+# addons:
+#   code_climate:
+#     repo_token:
+#
+# after_script:
+#    codeclimate-test-reporter < lcov.info
