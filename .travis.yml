@@ -10,7 +10,7 @@ notifications:
   slack: 
     rooms: 
       - p632:20oR0X45QVtC9RACNHghchWR
-    on_success: never
+    on_success: change
     on_failure: always
 
 # addons:
