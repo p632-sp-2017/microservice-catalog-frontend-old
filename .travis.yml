@@ -4,7 +4,7 @@ jdk:
 sudo: true
 
 script:
-  - mvn test
+  - mvn clean package
 
 notifications:
   slack:
