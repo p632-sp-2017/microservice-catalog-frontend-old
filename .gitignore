@@ -100,3 +100,4 @@ lcov.info
 
 # Maven Node cache
 .mvn/node
+.mvn/node/
