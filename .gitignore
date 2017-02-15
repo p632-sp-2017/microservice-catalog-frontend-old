@@ -97,3 +97,6 @@ build
 
 # Coverage Report
 lcov.info
+
+# Maven Node cache
+.mvn/node

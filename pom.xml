@@ -103,7 +103,7 @@
 
 					<execution>
 						<id>Frontend production build</id>
-						<phase>package</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>yarn</goal>
 						</goals>
@@ -125,26 +125,39 @@
 				<version>3.0.1</version>
 				<executions>
 					<execution>
-						<id>Copy frontend production build to resources</id>
-						<phase>package</phase>
+						<id>Copy transpiled JavaScript and pre-processed CSS from the Webpack build to static resources directory</id>
+						<phase>prepare-package</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/classes</outputDirectory>
+							<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/app/build/static</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>Copy other public resources from the Webpack build to static resources directory</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.outputDirectory}/static</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/app/build/</directory>
-									<filtering>true</filtering>
+									<excludes>
+										<exclude>static</exclude>
+									</excludes>
 								</resource>
 							</resources>
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
