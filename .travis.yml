@@ -18,4 +18,5 @@ addons:
     repo_token: 8860173d24d4bee5353db985c3ef17bdfbf06ca038474f8b0b9f883410f32561
 
 after_script:
-   codeclimate-test-reporter < lcov.info
+   - npm install -g codeclimate-test-reporter
+   - codeclimate-test-reporter < lcov.info
