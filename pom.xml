@@ -114,7 +114,7 @@
 				</executions>
 				<configuration>
 					<nodeVersion>v7.2.0</nodeVersion>
-					<yarnVersion>v0.18.0</yarnVersion>
+					<yarnVersion>v0.20.0</yarnVersion>
 					<installDirectory>.mvn</installDirectory>
 					<workingDirectory>src/main/app</workingDirectory>
 				</configuration>
