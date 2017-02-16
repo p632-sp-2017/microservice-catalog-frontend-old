@@ -18,7 +18,7 @@ const header = [
 
 
 class DataView2 extends Component {
-  getData = () => {
+  getData(){ // Changed - Jimit 15th Feb, 2017. CodeClimate issue
     return data;
   };
 

@@ -6,7 +6,7 @@ import './SearchBox.css';
 import './Fonts.css';
 
 class SearchBox extends Component {
-  handleChange = (e) => {
+  handleChange(e){
     this.setState({ value: e.target.value });
   };
 
