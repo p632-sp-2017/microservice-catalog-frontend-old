@@ -1,9 +1,6 @@
 .Data {
   text-align: left;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 40px;
-  margin-left: 10px;
+  margin: 20px 40px 20px 10px; /*Changed - Jimit 15th Feb, 2017. CodeClimate issue */
   font-size: medium;
   padding-top: 20px;
 }

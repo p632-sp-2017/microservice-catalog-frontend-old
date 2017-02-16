@@ -1,22 +1,11 @@
 .Search-box {
-  outline : none;
   width: 300px;
   float: right;
 }
 
 /* Search styles */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 #s {
+  background: rgb(0,0,0); /* Fallback Color for browsers not supporting rgba */
   background: rgba(0,0,0,.375)
   url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=) no-repeat 14px 14px;
   text-indent: .75em;
@@ -25,12 +14,14 @@
   width: 0;
   height: 3em;
   border-radius: 3em;
-  -webkit-transition: .3s;
+  -o-transition: .3s; /* Opera browser */
+  -moz-transition: .3s; /* Mozilla browser */
+  -webkit-transition: .3s; /* Chrome browser */
   transition: .3s;
-  outline: none;
   padding: 1em 1.5em;
   cursor: pointer;
-  -webkit-appearance: none;
+  -moz-appearance: none; /* Mozilla browser */
+  -webkit-appearance: none; /* Chrome browser */
   font-weight: inherit;
   font-size: inherit;
   font-family: inherit;
@@ -38,6 +29,7 @@
   vertical-align: baseline;
 }
 input[type=search]::-webkit-search-cancel-button {
+  -moz-appearance: none; /* Mozilla browser */
   -webkit-appearance: none;
 }
 

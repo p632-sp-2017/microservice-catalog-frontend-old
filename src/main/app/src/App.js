@@ -19,9 +19,6 @@ class App extends Component {
             <SearchBox/>
           </div>
         </div>
-
-
-
         <div>
           <ViewData />
         </div>
