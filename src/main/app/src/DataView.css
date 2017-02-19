@@ -1,10 +1,32 @@
 .Data {
   text-align: left;
-  margin: 20px 40px 20px 10px; /*Changed - Jimit 15th Feb, 2017. CodeClimate issue */
+  padding: 20px 40px 20px 10px; /*Changed - Jimit 15th Feb, 2017. CodeClimate issue */ /*Changed from margin to padding, 02/16/17 - Gulshan. To avoid horizontal scroll*/
   font-size: medium;
   padding-top: 20px;
 }
 
 .Div-container{
   width: 98%;
+}
+.Div-container .table-responsive{
+  clear:both;
+}
+.Div-container table tbody tr:nth-child(even){
+  background-color: #d9e0fa;
+}
+.Div-container table thead tr{
+  background-color: #6e84d4
+}
+
+.Div-container table thead th{
+  width:30%;
+  display: inline-block;
+  border-bottom: none;
+}
+.Div-container table tbody tr td{
+  width:30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  white-space: nowrap;
 }

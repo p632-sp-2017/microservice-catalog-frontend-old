@@ -3,29 +3,73 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Table } from 'react-bootstrap/lib';
 import './DataView.css';
-
-const data = [
-  {title:'Microservice 1', description:'Description for Micro Service 1', url:'http://sample1.url'},
-  {title:'Microservice 2', description:'Description for Micro Service 2', url:'http://sample2.url'},
-  {title:'Microservice 3', description:'Description for Micro Service 3', url:'http://sample3.url'},
-  {title:'Microservice 4', description:'Description for Micro Service 4', url:'http://sample4.url'},
-  {title:'Microservice 5', description:'Description for Micro Service 5', url:'http://sample5.url'}
-];
+import SearchBox from './SearchBox'
 
 const header = [
   {title:"Title", description:"Description", url:"URL"}
 ]
 
-
 class DataView2 extends Component {
-  getData(){ // Changed - Jimit 15th Feb, 2017. CodeClimate issue
-    return data;
+  constructor(){
+    super();
+    this.state = {
+      serviceData:{},
+      filterData:{}
+    }
   }
 
+  handleFilterRows(data){
+  if(data===""){
+    this.setState({filterData:this.state.serviceData});
+    return;
+  }
+  let tableData = []
+  let tempData = this.state.serviceData;
+  tempData.map(function(dataItem){
+    if(dataItem.title.toUpperCase().indexOf(data.toUpperCase())!==-1){
+      tableData.push({
+        title: dataItem.title,
+        description: dataItem.description,
+        url: dataItem.url
+      });
+    }
+
+  });
+  this.setState({filterData:tableData})
+}
+
+componentWillMount(){
+  this.setState({
+    serviceData : [
+      {title:'Microservice 1', description:'Description for Micro Service 1', url:'http://sample1.url'},
+      {title:'Microservice 2', description:'Description for Micro Service 2', url:'http://sample2.url'},
+      {title:'Microservice 3', description:'Description for Micro Service 3', url:'http://sample3.url'},
+      {title:'Microservice 4', description:'Description for Micro Service 4', url:'http://sample4.url'},
+      {title:'Microservice 5', description:'Description for Micro Service 5', url:'http://sample5.url'}
+    ]
+  });
+  this.setState({filterData:[
+    {title:'Microservice 1', description:'Description for Micro Service 1', url:'http://sample1.url'},
+    {title:'Microservice 2', description:'Description for Micro Service 2', url:'http://sample2.url'},
+    {title:'Microservice 3', description:'Description for Micro Service 3', url:'http://sample3.url'},
+    {title:'Microservice 4', description:'Description for Micro Service 4', url:'http://sample4.url'},
+    {title:'Microservice 5', description:'Description for Micro Service 5', url:'http://sample5.url'}
+  ]})
+}
+
   render(){
-    const Data = this.getData();
+    let tableData = []
+    this.state.filterData.map(function(dataItem){
+      tableData.push(<tr>
+           <td> {dataItem.title} </td>
+           <td> {dataItem.description}</td>
+           <td> {dataItem.url}</td>
+         </tr>);
+    });
+
     return (
       <div className="Div-container">
+      <SearchBox filterRows={this.handleFilterRows.bind(this)} />
       <Table responsive hover className="Data">
         <thead>
           {header.map((entry,idx) => (
@@ -37,13 +81,8 @@ class DataView2 extends Component {
           ))}
         </thead>
         <tbody>
-          {Data.map((entry,idx) => (
-            <tr>
-              <td>{entry.title}</td>
-              <td>{entry.description}</td>
-              <td><a href={entry.url}>{entry.url}</a></td>
-            </tr>
-          ))}
+        {tableData}
+
         </tbody>
       </Table>
       </div>
