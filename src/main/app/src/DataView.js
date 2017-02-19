@@ -19,6 +19,7 @@ class DataView2 extends Component {
   }
 
   handleFilterRows(data){
+  data=data.trim();   //added by gulshan on 02/19 to check for blank values as well
   if(data===""){
     this.setState({filterData:this.state.serviceData});
     return;
@@ -26,7 +27,7 @@ class DataView2 extends Component {
   let tableData = []
   let tempData = this.state.serviceData;
   tableData = tempData.map(function(dataItem){
-    if(dataItem.title.toUpperCase().indexOf(data.toUpperCase())!==-1){
+    if(dataItem.title.toUpperCase().indexOf(data.toUpperCase())!==-1 || dataItem.description.toUpperCase().indexOf(data.toUpperCase())!==-1){
       return({
         title: dataItem.title,
         description: dataItem.description,

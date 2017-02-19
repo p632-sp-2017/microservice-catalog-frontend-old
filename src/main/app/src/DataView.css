@@ -12,10 +12,13 @@
   clear:both;
 }
 .Div-container table tbody tr:nth-child(even){
-  background-color: #d9e0fa;
+  /*background-color: #d9e0fa;*/
+  background-color: #B2DFDB; /*changed by gulshan on 02/19*/
 }
 .Div-container table thead tr{
-  background-color: #6e84d4
+  /*background-color: #6e84d4*/
+  background-color: #009688; /*changed by gulshan on 02/19*/
+  color: #fff;
 }
 
 .Div-container table thead th{
