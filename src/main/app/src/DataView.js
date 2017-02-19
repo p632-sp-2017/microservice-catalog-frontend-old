@@ -25,15 +25,17 @@ class DataView2 extends Component {
   }
   let tableData = []
   let tempData = this.state.serviceData;
-  tempData.map(function(dataItem){
+  tableData = tempData.map(function(dataItem){
     if(dataItem.title.toUpperCase().indexOf(data.toUpperCase())!==-1){
-      tableData.push({
+      return({
         title: dataItem.title,
         description: dataItem.description,
         url: dataItem.url
       });
     }
-
+    else{
+      return undefined;
+    }
   });
   this.setState({filterData:tableData})
 }
@@ -59,12 +61,17 @@ componentWillMount(){
 
   render(){
     let tableData = []
-    this.state.filterData.map(function(dataItem){
-      tableData.push(<tr>
-           <td> {dataItem.title} </td>
-           <td> {dataItem.description}</td>
-           <td> {dataItem.url}</td>
-         </tr>);
+    tableData = this.state.filterData.map(function(dataItem){
+      if(dataItem !== undefined){
+        return <tr>
+             <td> {dataItem.title} </td>
+             <td> {dataItem.description}</td>
+             <td> {dataItem.url}</td>
+           </tr>;
+      }
+      else {
+        return "";
+      }
     });
 
     return (
