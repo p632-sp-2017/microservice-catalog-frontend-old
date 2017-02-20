@@ -10,10 +10,14 @@ class SearchBox extends Component {
     this.setState({ value: e.target.value });
   }
 
+  handleKeyPress(e){
+    this.props.filterRows(this.refs.searchbox.value);
+  }
+
   render() {
     return(
       <div className="Search-box">
-        <input type="search" id="s" placeholder="Search"/>
+        <input type="search" onKeyUp={this.handleKeyPress.bind(this)} ref="searchbox" id="search" placeholder="Search"/>
       </div>
     );
   }
