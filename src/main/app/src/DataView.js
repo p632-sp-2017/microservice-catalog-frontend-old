@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import { Table } from 'react-bootstrap/lib';
+import { Accordion, Panel } from 'react-bootstrap/lib';
 import './DataView.css';
 import SearchBox from './SearchBox'
-
-const header = [
-  {title:"Title", description:"Description", url:"URL"}
-]
 
 class DataView2 extends Component {
   constructor(){
@@ -62,13 +58,14 @@ componentWillMount(){
 
   render(){
     let tableData = []
-    tableData = this.state.filterData.map(function(dataItem){
+    tableData = this.state.filterData.map(function(dataItem,idx){
       if(dataItem !== undefined){
-        return <tr>
-             <td> {dataItem.title} </td>
-             <td> {dataItem.description}</td>
-             <td> {dataItem.url}</td>
-           </tr>;
+        return <Accordion>
+          <Panel header={dataItem.title} eventKey={idx}>
+            {dataItem.description}<br/>
+            <a href={dataItem.url}>{dataItem.url}</a>
+        </Panel>
+        </Accordion>
       }
       else {
         return "";
@@ -78,21 +75,7 @@ componentWillMount(){
     return (
       <div className="Div-container">
       <SearchBox filterRows={this.handleFilterRows.bind(this)} />
-      <Table responsive hover className="Data">
-        <thead>
-          {header.map((entry,idx) => (
-            <tr>
-              <th>{entry.title}</th>
-              <th>{entry.description}</th>
-              <th>{entry.url}</th>
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-        {tableData}
-
-        </tbody>
-      </Table>
+      {tableData}
       </div>
     );
   }

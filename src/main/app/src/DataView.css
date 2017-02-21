@@ -11,6 +11,14 @@
 .Div-container .table-responsive{
   clear:both;
 }
+.Div-container .panel-group{
+  clear:both;
+  width:60%;
+  margin-left:20%;
+}
+.Div-container .panel-group .panel-heading{
+  cursor: pointer;
+}
 .Div-container table tbody tr:nth-child(even){
   /*background-color: #d9e0fa;*/
   background-color: #B2DFDB; /*changed by gulshan on 02/19*/
