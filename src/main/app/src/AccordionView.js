@@ -3,14 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Accordion, Panel } from 'react-bootstrap/lib';
 
-const data = [
-  {title:'Microservice 1', description:'Description for Micro Service 1', url:'http://sample1.url'},
-  {title:'Microservice 2', description:'Description for Micro Service 2', url:'http://sample2.url'},
-  {title:'Microservice 3', description:'Description for Micro Service 3', url:'http://sample3.url'},
-  {title:'Microservice 4', description:'Description for Micro Service 4', url:'http://sample4.url'},
-  {title:'Microservice 5', description:'Description for Micro Service 5', url:'http://sample5.url'}
-];
-
 class AccordionView extends Component {
   constructor(props) {
     super(props);
