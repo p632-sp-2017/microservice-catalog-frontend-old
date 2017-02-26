@@ -62,9 +62,9 @@ componentWillMount(){
 
   render(){
     let tableData = []
-    tableData = this.state.filterData.map(function(dataItem){
+    tableData = this.state.filterData.map((dataItem , idx) => {
       if(dataItem !== undefined){
-        return <tr>
+        return <tr key={idx}>
              <td> {dataItem.title} </td>
              <td> {dataItem.description}</td>
              <td> {dataItem.url}</td>
@@ -81,7 +81,7 @@ componentWillMount(){
       <Table responsive hover className="Data">
         <thead>
           {header.map((entry,idx) => (
-            <tr>
+            <tr key={idx}>
               <th>{entry.title}</th>
               <th>{entry.description}</th>
               <th>{entry.url}</th>
