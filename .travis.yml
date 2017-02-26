@@ -5,7 +5,7 @@ jdk:
 # env:
 #   - TRAVIS_NODE_VERSION="6.9.2"
 #
-# sudo: true
+sudo: true
 
 addons:
   code_climate:
