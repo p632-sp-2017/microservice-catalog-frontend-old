@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import ViewData from './DataView';
 import './Fonts.css'
+import AccordionView from './AccordionView';
 
 
 class App extends Component {
@@ -20,6 +21,11 @@ class App extends Component {
         <div>
           <ViewData />
         </div>
+        
+        <div>
+          <AccordionView />
+        </div>
+
       </div>
     );
   }
