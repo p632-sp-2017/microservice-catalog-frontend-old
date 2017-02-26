@@ -113,15 +113,15 @@
 						</configuration>
 					</execution>
 					<execution>
- -						<id>Frontend Test Coverage</id>
- -						<phase>test</phase>
- -						<goals>
- -							<goal>yarn</goal>
- -						</goals>
- -						<configuration>
- -							<arguments>test --coverage</arguments>
- -						</configuration>
- -					</execution>
+ 						<id>Frontend Test Coverage</id>
+ 						<phase>test</phase>
+ 						<goals>
+ 							<goal>yarn</goal>
+ 						</goals>
+ 						<configuration>
+ 							<arguments>test --coverage</arguments>
+ 						</configuration>
+ 					</execution>
 				</executions>
 				<configuration>
 					<nodeVersion>v7.2.0</nodeVersion>
