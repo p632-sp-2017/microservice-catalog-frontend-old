@@ -6,34 +6,37 @@ import {getDataOnStart} from '../actions';
 import React from 'react';
 
 const AccordionView = ( props ) => {
-const {dispatch, serviceData}  = props;
-//   fetch("/catalog").then((response)=>{
-//     console.log(response);
-//     dispatch(getDataOnStart(response.json()));
-//   }
-// )
-// .catch(e => console.log("Error in getting data"))
+  const {dispatch, serviceData}  = props;
 
-let tempData =[{title:'Microservice hello', description:'Hello Description for Micro Service 1', url:'http://sample1.url'}];
-let tempData1 =[{title:'Microservice 2323', description:'Hello Description for Micro Service 1', url:'http://sample1.url'}];
+let tempData1 =[{title:'Microservice Dummy Data without Server', description:'Description for Micro Service 1', url:'http://sample1.url'}];
 
 let Data = serviceData;
 if(null == Data){
   Data = tempData1;
-  dispatch(getDataOnStart(tempData));
+  fetch("api/catalog")
+    .then((response)=>{
+      console.log(response);
+      if(response.status ==200){
+        response.json().then((data)=>{
+          console.log(data);
+          dispatch(getDataOnStart(data))
+        })
+      }
+    })
+    .catch( e => console.log(e))
 }
 
 return(
   <div>
-  <Accordion>
-  {Data.map((entry,idx) => (
-    <Panel key={idx} header={entry.title} eventKey={idx}>
-    {entry.description}<br/>
-    <a href={entry.url}>Link</a>
-    </Panel>
-  ))}
+    <Accordion>
+      {Data.map((entry,idx) => (
+        <Panel key={idx} header={entry.title} eventKey={idx}>
+          {entry.description}<br/>
+        <a href={entry.url}>Link</a>
+      </Panel>
+    ))}
   </Accordion>
-  </div>
+</div>
 )
 }
 
