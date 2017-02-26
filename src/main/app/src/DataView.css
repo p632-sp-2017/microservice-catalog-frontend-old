@@ -11,13 +11,11 @@
 .Div-container .table-responsive{
   clear:both;
 }
-.Div-container table tbody tr:nth-child(even){
-  /*background-color: #d9e0fa;*/
-  background-color: #B2DFDB; /*changed by gulshan on 02/19*/
+.Div-container table tbody tr:nth-child(4n-1){
+  background-color: #d9e0fa;
 }
 .Div-container table thead tr{
-  /*background-color: #6e84d4*/
-  background-color: #009688; /*changed by gulshan on 02/19*/
+  background-color: #6e84d4;
   color: #fff;
 }
 
@@ -26,10 +24,24 @@
   display: inline-block;
   border-bottom: none;
 }
+.Div-container table thead th:nth-child(4){
+  width:10%;
+}
 .Div-container table tbody tr td{
   width:30%;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
   white-space: nowrap;
+}
+.Div-container table tbody tr td:nth-child(4){
+  width:10%;
+  text-align: right;
+  padding-right:20px;
+  cursor: pointer;
+}
+.details{
+  display: none;
+  height: auto;
+  padding:10px 40px;
 }

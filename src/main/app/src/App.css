@@ -8,9 +8,7 @@
 }
 
 .App-header {
-  /*background-color: #006064;*/
-  /*background-color: #0d2840;*/
-  background-color: #004D40; /*changed by gulshan on 02/19*/
+  background-color: #0d2840;
   height: 210px;
   padding: 20px;
   color: white;

@@ -4,11 +4,17 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import { Table } from 'react-bootstrap/lib';
 import './DataView.css';
 import SearchBox from './SearchBox'
+import FontAwesome from 'react-fontawesome';
+import DetailView from './DetailView'
+
 
 const header = [
   {title:"Title", description:"Description", url:"URL"}
 ]
-
+var open = false;
+//var heightChecked = false;
+var initHeight = 120;
+var intval = null;
 class DataView2 extends Component {
   constructor(){
     super();
@@ -41,6 +47,60 @@ class DataView2 extends Component {
   this.setState({filterData:tableData})
 }
 
+handleArrowClick(event){
+  let classes = event.target.classList;
+  let classToAdd = 'fa-caret-down';
+  if(classes.contains('fa-caret-down')){
+    classToAdd = 'fa-caret-up';
+  }
+  classes.remove('fa-caret-down','fa-caret-up');
+  classes.add(classToAdd);
+  let element = event.target.closest('tr').nextSibling;
+  this.slideToggle(element);
+}
+
+/*Slide-toggle related code*/
+
+slideToggle(element) {
+    window.clearInterval(intval);
+    var mdiv = document.getElementById('mdiv');
+    mdiv = element;
+    if(getComputedStyle(mdiv).getPropertyValue('display') === "none"){
+      open = false;
+    }
+    else{
+      open = true;
+    }
+    if(open) {
+      mdiv.style.visibility="hidden";
+        var h = mdiv.offsetHeight;
+        open = false;
+        intval = setInterval(function(){
+			h--;
+			mdiv.style.height = h + 'px';
+			if(h <= 0){
+				window.clearInterval(intval);
+        mdiv.style.display = 'none';
+      }
+    }, 1
+		);
+
+    }
+    else {
+      mdiv.style.display = 'block';
+      mdiv.style.visibility = "visible";
+        h = 0;
+        open = true;
+	    intval = setInterval(function(){
+			h++;
+      mdiv.style.height = "auto";
+			if(h >= initHeight)
+				window.clearInterval(intval);
+			}, 1
+		);
+    }
+}
+
 componentWillMount(){
   this.setState({
     serviceData : [
@@ -62,18 +122,21 @@ componentWillMount(){
 
   render(){
     let tableData = []
-    tableData = this.state.filterData.map(function(dataItem){
+    debugger;
+    tableData = this.state.filterData.map((dataItem)=>{
       if(dataItem !== undefined){
-        return <tr>
+        return [<tr>
              <td> {dataItem.title} </td>
              <td> {dataItem.description}</td>
              <td> {dataItem.url}</td>
-           </tr>;
+             <td  onClick={this.handleArrowClick.bind(this)}><FontAwesome className="caret-down" name="caret-down" size="lg" /></td>
+           </tr>,
+           <tr className="details"><DetailView serviceDetails={dataItem} /></tr>];
       }
       else {
         return "";
       }
-    });
+    },this);
 
     return (
       <div className="Div-container">
@@ -85,6 +148,7 @@ componentWillMount(){
               <th>{entry.title}</th>
               <th>{entry.description}</th>
               <th>{entry.url}</th>
+              <th></th>
             </tr>
           ))}
         </thead>
