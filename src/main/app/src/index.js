@@ -5,10 +5,11 @@ import App from './App';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import './index.css';
-import logger from 'redux-logger';
+import createLogger from 'redux-logger';
 import appReducer from './reducers';
 
-let middleware = applyMiddleware(logger(),thunk);
+const logger = createLogger();
+let middleware = applyMiddleware(thunk, logger());
 let store = createStore(appReducer, middleware);
 
 ReactDOM.render(
