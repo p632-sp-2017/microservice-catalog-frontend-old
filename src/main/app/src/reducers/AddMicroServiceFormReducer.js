@@ -1,8 +1,7 @@
 const microServiceFormReducer = ( state={}, action) =>{
   switch (action.type) {
-    case "submit":
+    case "handleSubmit":
       return state
-      //Make AJAX call here
       break;
     default:
       return state

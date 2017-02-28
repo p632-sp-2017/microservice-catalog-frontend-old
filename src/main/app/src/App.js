@@ -2,17 +2,20 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import DataView from './DataView';
 import './Fonts.css'
-import AccordionView from './containers/AccordionView';
-import AppHeader from './AppHeader';
 
-const App = ()=> {
+import NavInstance from './containers/Navigation'
+
+
+import Header from './AppHeader'
+const App = ({children})=> {
     return (
       <div className="App">
-        <AppHeader />
-        <DataView />
-        <AccordionView />
+        <Header/>
+        <NavInstance/>
+        <div>
+          {children}
+        </div>
       </div>
     );
 }
