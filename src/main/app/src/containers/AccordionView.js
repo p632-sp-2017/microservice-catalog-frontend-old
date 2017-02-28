@@ -16,7 +16,7 @@ if(null == Data){
   fetch("api/catalog")
     .then((response)=>{
       console.log(response);
-      if(response.status ==200){
+      if(response.status === 200){
         response.json().then((data)=>{
           console.log(data);
           dispatch(getDataOnStart(data))
