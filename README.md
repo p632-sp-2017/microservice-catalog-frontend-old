@@ -5,16 +5,17 @@
 This is the Microservice Catalog project made under UITS for the P632 course.
 
 Steps to Run:
-1) Install Dependencies 
+1) Install Dependencies
 ```
 cd src/main/app
 yarn install
 ```
 2) Run Application
 ```
+cd ../../..
 mvn spring-boot:run
 ```
 3) Stop Application
 ```
-mvn spring-boot:run
+mvn spring-boot:stop
 ```

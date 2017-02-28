@@ -9,6 +9,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const mockStore = createStore(reducer);
   ReactDOM.render(
+
     <Provider store={mockStore}>
       <App />
     </Provider>,div);
