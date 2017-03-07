@@ -122,7 +122,6 @@ componentWillMount(){
 
   render(){
     let tableData = []
-    debugger;
     tableData = this.state.filterData.map((dataItem)=>{
       if(dataItem !== undefined){
         return [<tr>
@@ -144,7 +143,7 @@ componentWillMount(){
       <Table responsive hover className="Data">
         <thead>
           {header.map((entry,idx) => (
-            <tr>
+            <tr key={idx}>
               <th>{entry.title}</th>
               <th>{entry.description}</th>
               <th>{entry.url}</th>

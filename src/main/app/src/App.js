@@ -1,34 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import ViewData from './DataView';
 import './Fonts.css'
-import AccordionView from './AccordionView';
+
+import NavInstance from './containers/Navigation'
 
 
-class App extends Component {
-  render() {
+import Header from './AppHeader'
+const App = ({children})=> {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Micro Service Catalog</h2>
-          <div className="App-intro">
-          </div>
-        </div>
+        <Header/>
+        <NavInstance/>
         <div>
-          <ViewData />
+          {children}
         </div>
-        
-        <div>
-          <AccordionView />
-        </div>
-
       </div>
     );
-  }
 }
 
 export default App;
